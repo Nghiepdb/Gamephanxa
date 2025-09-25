@@ -55,7 +55,19 @@ h1 { margin-bottom: 15px; }
 
 .wrong { background: #e74c3c !important; }
 
-.info { margin-top: 10px; }
+/* CHỈNH SỬA: Căn giữa và phân bố đều phần thông tin */
+.info { 
+    margin-top: 10px; 
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.2em;
+    padding: 5px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
 
 button {
   margin: 5px;
@@ -129,21 +141,6 @@ button:hover { background: #3498db; }
     color: #2ecc71; 
 }
 
-.info { 
-  margin-top: 10px; 
-  /* THAY ĐỔI: Sử dụng Flexbox để căn chỉnh */
-  display: flex;
-  justify-content: space-around; /* Phân bố đều giữa các phần tử */
-  align-items: center;
-  width: 500px; /* Đặt chiều rộng bằng với .board */
-  margin-left: auto; /* Căn giữa khối info */
-  margin-right: auto;
-  font-size: 1.2em; /* Tăng kích thước chữ cho dễ nhìn */
-  padding: 5px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-
 /* THÊM STYLE CHO NÚT GIẢ */
 #fake-start-button {
     background: none; 
@@ -156,7 +153,6 @@ button:hover { background: #3498db; }
     border: none; 
     cursor: pointer;
     transition: color 0.1s;
-    text-decoration: none;
 }
 
 #fake-start-button:hover {
@@ -168,8 +164,63 @@ button:hover { background: #3498db; }
     display: none;
 }
 
-/* CSS MỚI ĐƯỢC THÊM VÀO: Làm số biến mất nhưng giữ vị trí */
+/* CSS ĐỂ ẨN SỐ MÀ KHÔNG GỘP LẠI (chế độ dễ) */
 .invisible {
-    visibility: hidden; /* Giữ nguyên không gian (vị trí) */
-    pointer-events: none; /* Ngăn chặn click vào ô trống */
+    visibility: hidden; 
+    pointer-events: none; 
+}
+
+/* ================================================= */
+/* RESPONSIVE DESIGN CHO THIẾT BỊ DI ĐỘNG    */
+/* ================================================= */
+@media screen and (max-width: 600px) {
+    
+    /* 1. Thay đổi kích thước khối chứa game */
+    .game-container {
+        padding: 10px;
+        width: 95%; /* Chiếm gần hết chiều rộng màn hình */
+        max-width: none; /* Bỏ giới hạn max-width */
+    }
+
+    /* 2. Thay đổi kích thước bảng chơi và căn giữa */
+    .board, .splash-screen, .info {
+        /* Đặt chiều rộng linh hoạt để phù hợp với 95% màn hình */
+        width: 95%; 
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* 3. Tối ưu hóa bảng số (Board) */
+    .board, .splash-screen {
+        gap: 5px;
+        /* Giảm chiều cao để không bị quá dài trên màn hình nhỏ */
+        height: 350px; 
+    }
+    
+    /* Đảm bảo bảng số 5x4 vẫn vừa vặn (giảm kích thước chữ) */
+    .number {
+        font-size: 16px;
+        border-radius: 6px;
+    }
+    
+    /* 4. Điều chỉnh phần Hướng dẫn */
+    .splash-screen {
+        font-size: 0.9em; /* Giảm cỡ chữ tổng thể */
+        padding: 15px;
+        height: 350px;
+    }
+
+    /* 5. Điều chỉnh phần controls */
+    .controls {
+        display: flex;
+        flex-wrap: wrap; /* Cho phép các nút và select xuống dòng nếu cần */
+        justify-content: center;
+        gap: 8px;
+    }
+    
+    .controls label, .controls select {
+        width: 100%; /* Đặt Chọn Chế độ và Select ở một hàng riêng */
+        text-align: center;
+        margin-bottom: 5px;
+    }
 }
