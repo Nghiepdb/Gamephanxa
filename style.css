@@ -172,57 +172,64 @@ button:hover { background: #3498db; }
 }
 
 /* ================================================= */
-/* RESPONSIVE DESIGN CHO THIẾT BỊ DI ĐỘNG    */
+/* RESPONSIVE DESIGN CHO THIẾT BỊ DI ĐỘNG (DƯỚI 600PX) */
 /* ================================================= */
 @media screen and (max-width: 600px) {
     
-    /* 1. Thay đổi kích thước khối chứa game */
-    .game-container {
-        padding: 10px;
-        width: 95%; /* Chiếm gần hết chiều rộng màn hình */
-        max-width: none; /* Bỏ giới hạn max-width */
+    /* 1. Tối ưu hóa khối chứa game và body */
+    body {
+        /* Cho phép nội dung cuộn trên mobile */
+        height: auto; 
+        min-height: 100vh;
+        padding: 10px 0; /* Thêm padding trên/dưới để không dính mép */
     }
 
-    /* 2. Thay đổi kích thước bảng chơi và căn giữa */
-    .board, .splash-screen, .info {
-        /* Đặt chiều rộng linh hoạt để phù hợp với 95% màn hình */
+    .game-container {
+        padding: 10px;
         width: 95%; 
+        max-width: none; 
+    }
+    
+    /* 2. Thay đổi kích thước và bỏ chiều cao cố định */
+    .board, .splash-screen, .info {
+        width: 100%; /* Đặt 100% chiều rộng của game-container */
         margin-left: auto;
         margin-right: auto;
     }
 
-    /* 3. Tối ưu hóa bảng số (Board) */
-    .board, .splash-screen {
+    /* 3. Tối ưu hóa Bảng số và Hướng dẫn */
+    .board {
+        /* BỎ height cố định và dùng padding-bottom để giữ tỷ lệ 5x4 */
+        height: auto; 
+        padding-bottom: 80%; /* Chiều cao xấp xỉ 80% chiều rộng để giữ tỷ lệ 5x4 */
         gap: 5px;
-        /* Giảm chiều cao để không bị quá dài trên màn hình nhỏ */
-        height: 350px; 
+        padding: 5px;
     }
     
-    /* Đảm bảo bảng số 5x4 vẫn vừa vặn (giảm kích thước chữ) */
+    .splash-screen {
+        /* Bỏ height cố định */
+        height: auto; 
+        min-height: 300px; /* Đảm bảo có chiều cao tối thiểu */
+        font-size: 0.9em; 
+        padding: 15px;
+    }
+    
     .number {
         font-size: 16px;
         border-radius: 6px;
     }
     
-    /* 4. Điều chỉnh phần Hướng dẫn */
-    .splash-screen {
-        font-size: 0.9em; /* Giảm cỡ chữ tổng thể */
-        padding: 15px;
-        height: 350px;
-    }
-
-    /* 5. Điều chỉnh phần controls */
+    /* 4. Điều chỉnh phần controls */
     .controls {
         display: flex;
-        flex-wrap: wrap; /* Cho phép các nút và select xuống dòng nếu cần */
+        flex-wrap: wrap; 
         justify-content: center;
         gap: 8px;
     }
     
     .controls label, .controls select {
-        width: 100%; /* Đặt Chọn Chế độ và Select ở một hàng riêng */
+        width: 100%; 
         text-align: center;
         margin-bottom: 5px;
     }
 }
-
