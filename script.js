@@ -109,7 +109,7 @@ function shuffleNumbers() {
 
 // HÀM MỚI: Xử lý sự kiện click vào nút "Bắt đầu" giả
 function showFakeStartAlert() {
-  alert("😂 Không phải nút này! Nút BẮT ĐẦU xịn ở trên kia cơ. Đừng để bị lừa nhé!");
+  alert("😂 Không phải nút này! Nút BẮT ĐẦU to đùng ở trên kìa 😂");
 }
 
 // THIẾT LẬP TRẠNG THÁI BAN ĐẦU KHI TẢI TRANG
