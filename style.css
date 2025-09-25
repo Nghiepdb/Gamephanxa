@@ -153,6 +153,7 @@ button:hover { background: #3498db; }
     border: none; 
     cursor: pointer;
     transition: color 0.1s;
+    text-decoration: none;
 }
 
 #fake-start-button:hover {
@@ -224,3 +225,4 @@ button:hover { background: #3498db; }
         margin-bottom: 5px;
     }
 }
+
