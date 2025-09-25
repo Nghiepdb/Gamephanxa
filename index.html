@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luyện phản xạ não</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-container">
+    <h1>🔥 Thử thách tốc độ và phản xạ! 🔥</h1>
+    <div class="controls">
+      <label for="difficulty">Chọn chế độ: </label>
+      <select id="difficulty">
+        <option value="easy">Dễ (60s)</option>
+        <option value="medium">Trung bình (40s)</option>
+        <option value="hard">Khó (25s)</option>
+        <option value="superhard">Siêu khó (25s)</option>
+      </select>
+      <button onclick="startGame()">Bắt đầu</button>
+      <button onclick="resetGame()">Reset</button>
+    </div>
+    
+    <div id="splash-screen" class="splash-screen">
+      <div class="banner">
+        <h2>🧠Giành cho những ai mất não🧠</h2>
+      </div>
+      <div class="instructions">
+        <ul>
+          <li>Tìm và nhấp vào các số theo thứ tự tăng dần từ <strong style="color: red;">1</strong> đến <strong style="color: red;">20</strong>.</li>
+          <li>Bạn có <strong style="color: red;">3</strong> mạng. Mỗi lần nhấn sai số sẽ bị trừ <strong style="color: red;">1</strong> mạng.</li>
+          <li>Hoàn thành nhanh nhất có thể trước khi <strong style="color: red;">Hết giờ </strong>!</li>
+          <li>Mỗi chế độ chơi sẽ có độ khó khác nhau.</li>
+          <li>Chế độ siêu khó không giành cho những con gà!!!</li>
+        </ul>
+      </div>
+      <p class="ready-text">
+        Sẵn sàng chưa? Hãy bấm 
+        <button id="fake-start-button" onclick="showFakeStartAlert()">Bắt đầu</button> 
+        để chinh phục!
+      </p>
+    </div>
+    <div class="board" id="board"></div>
+    <div class="info">
+      <p>Thời gian: <span id="time">0</span>s</p>
+      <p>Mạng: <span id="lives">3</span></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

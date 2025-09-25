@@ -1,0 +1,175 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: url('download.jpg') no-repeat center center/cover;
+  font-family: Arial, sans-serif;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.game-container {
+  background: rgba(0,0,0,0.8);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  width: 90%;
+  max-width: 700px;
+}
+
+h1 { margin-bottom: 15px; }
+
+.controls { margin-bottom: 15px; }
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 10px;
+  width: 500px;
+  height: 400px;
+  margin: 0 auto;
+  border: 2px solid white;
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #3498db;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.number:hover { transform: scale(1.1); }
+
+.highlight { background: #2ecc71 !important; }
+
+.wrong { background: #e74c3c !important; }
+
+.info { margin-top: 10px; }
+
+button {
+  margin: 5px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #2980b9;
+  color: white;
+  font-weight: bold;
+}
+
+button:hover { background: #3498db; }
+
+/* CSS MÀN HÌNH CHỜ */
+.splash-screen {
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.5); 
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05); 
+  margin: 10px auto;
+  text-align: left;
+  /* Kích thước tương đương với .board */
+  width: 500px; 
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  box-sizing: border-box; 
+}
+
+.splash-screen .banner {
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.splash-screen h2 {
+  color: #f1c40f; 
+  margin: 0;
+}
+
+.splash-screen .instructions {
+  margin: 10px 0;
+}
+
+.splash-screen .instructions h3 {
+  color: #3498db; 
+  margin-top: 0;
+  text-align: center;
+}
+
+.splash-screen .instructions ul {
+  list-style: none;
+  padding: 0 10px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.splash-screen .instructions li {
+  margin-bottom: 5px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.splash-screen .ready-text {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #2ecc71; 
+}
+
+.info { 
+  margin-top: 10px; 
+  /* THAY ĐỔI: Sử dụng Flexbox để căn chỉnh */
+  display: flex;
+  justify-content: space-around; /* Phân bố đều giữa các phần tử */
+  align-items: center;
+  width: 500px; /* Đặt chiều rộng bằng với .board */
+  margin-left: auto; /* Căn giữa khối info */
+  margin-right: auto;
+  font-size: 1.2em; /* Tăng kích thước chữ cho dễ nhìn */
+  padding: 5px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+/* THÊM STYLE CHO NÚT GIẢ */
+#fake-start-button {
+    background: none; 
+    color: #f1c40f; 
+    padding: 0;
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-decoration: underline; 
+    border: none; 
+    cursor: pointer;
+    transition: color 0.1s;
+    text-decoration: none;
+}
+
+#fake-start-button:hover {
+    color: #e67e22; 
+}
+
+/* Ẩn bảng chơi và thông tin khi chưa bắt đầu */
+.board, .info {
+    display: none;
+}
+
+/* CSS MỚI ĐƯỢC THÊM VÀO: Làm số biến mất nhưng giữ vị trí */
+.invisible {
+    visibility: hidden; /* Giữ nguyên không gian (vị trí) */
+    pointer-events: none; /* Ngăn chặn click vào ô trống */
+}
